@@ -55,7 +55,7 @@ store.board = [
   '', '', ''
 ]
 $('#result').text('Tic Tac Toe 2020 ®')
-if (store.validation === 1) {
+if (store.validation === true) {
 $('#again').text('Restart The Game')
 } else {}
 }
@@ -65,14 +65,14 @@ const onPlay = function (event) {
 event.preventDefault()
 let box=$(event.target)
 
-if(box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === 'play' && store.validation === 1) {
+if(box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === 'play' && store.validation === true) {
   box.text('X')
   counter += 1
   store.board[box.attr("id")] = 'X'
   $('#again').text('O turn')
   // store.player_x[box.attr("id")] = 'X'
   check('X')
-} else if (box.text() === '' && box.text() !=='X' && (counter % 2 === 0) && gameCheck === 'play' && store.validation === 1) {
+} else if (box.text() === '' && box.text() !=='X' && (counter % 2 === 0) && gameCheck === 'play' && store.validation === true) {
 box.text('O')
 counter += 1
 store.board[box.attr("id")] = 'O'
@@ -80,7 +80,7 @@ $('#again').text('X turn')
 //store.player_o[box.attr("id")] = 'O'
 check('O')
 }
-if (store.validation!==1) {
+if (store.validation!==true) {
   $("#again").text('Please sign-in to play the game!')
 }
 else if (gameCheck==='over'){

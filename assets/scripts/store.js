@@ -21,7 +21,7 @@ const winner = [
 ]
 const store = {
 }
-let  validation=0
+let  validation=false
 
 module.exports = {
   store,

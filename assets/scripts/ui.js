@@ -16,7 +16,7 @@ const signInSuccess = function (data) {
   $('#again').text('Please Click New Game Button for the New Game')
   console.log('signUpSuccess data is: ', data)
   store.user = data.user
-//  store.validation = 1
+//  store.validation = true
 //  events.counter = 1
   console.log(events.counter)
 }
@@ -36,7 +36,7 @@ const signOutSuccess = function (data) {
   $('#message').text('Signed out successfully!')
   $('#again').text('Please sign-in to play the game!')
   console.log('signOutSuccess data is: ', data)
-  store.validation = 0
+  store.validation = false
   for(let i = 0; i < 9; i++) {
     $('#'+i).text('')
   }
@@ -50,7 +50,7 @@ const signOutFailure = function (error) {
 const newGameSuccessfull = function (event) {
   $('#message').text('New Game Started')
 //  $('again').text('Please Click New Game Button for the New Game')
-store.validation = 1
+store.validation = true
 events.counter = 1
 }
 

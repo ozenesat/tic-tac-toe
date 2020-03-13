@@ -51,13 +51,23 @@ const newGame = function () {
   })
 }
 
-const gameUpdate = function (data) {
-
-    return $.ajax({
-      url: config.apiUrl +'/games/' + data.id,
-      method: 'PATCH',
-      data,
-    })
+const gameUpdate = function (id, letter, bool) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.user.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': id,
+          'value': letter
+        },
+        'over': validation
+      }
+    }
+  })
 }
 
 
