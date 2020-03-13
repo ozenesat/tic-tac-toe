@@ -13,19 +13,55 @@
     </head>
     <body>
       <div class="container">
-        <div class="row">
-                  <div class="col-12 box alt-color">Tic Tac Toe</div>
-                </div>
-                <br>
-                <div class="row">
-                  <div class="col-4 box alt-color">Sign-up!</div>
-                  <div class="col-4 box alt-color">Sign-in!</div>
-                  <div class="col-4 box alt-color">Play as guest!</div>
-                </div>
-                <br>
-              </div>
-              <br>
-              <br>
+      <div class="row">
+          <div class="col-12 box alt-color">Tic Tac Toe</div>
+          <h2 id='message'class="col-12 box alt-color"> Sign-up/-in to play!</h2>
+        </div>
+      </div>
+
+      <form id="sign-up" class="border">
+        <fieldset>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+          <input type="submit" value="Sign up!">
+        </fieldset>
+      </form>
+
+      <form id="sign-in" class="border">
+        <fieldset>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign in!">
+        </fieldset>
+      </form>
+
+      <form id="change-password" class="border">
+        <fieldset>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" value="Change password!">
+        </fieldset>
+      </form>
+
+      <form id="sign-out" class="border">
+            <input type="submit" value="Sign out!">
+        </form>
+        <br>
+        <form id="new-game" class="border">
+              <input type="submit" value="New Game">
+          </form>
+      <!-- <div class="container">
+          <div class="row">
+            <div id="top1" class="col-6 box alt-color">Sign-up!</div>
+            <div id="top2" class="col-6 box alt-color">Sign-in!</div>
+            <div id="message"> </div>
+          </div>
+          <br>
+      </div>
+              <br> -->
+<br>
+
       <div class="container">
           <div id=gameBoard class="row">
             <div id=0 class="col-4 box alt-color"></div>
@@ -39,11 +75,14 @@
             <div id=8 class="col-4 box alt-color"></div>
           </div>
         </div>
+
+        <br>
         <br>
 
         <div class="container">
             <div class="row">
-              <div class="col-12 box alt-color">tic tac toe 2020</div>
+              <div id="again" class="col-12 box alt-color">Please sign-in to play the game!</div>
+              <div id="result" class="col-12 box alt-color">Tic Tac Toe 2020 ® </div>
             </div>
           </div>
 

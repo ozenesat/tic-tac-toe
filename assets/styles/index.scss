@@ -6,6 +6,9 @@ $font-color: $light;
 body {
   background-color: $body-bg-color;
 }
+fieldset {
+  text-align: center;
+}
 
 .box {
   align-items: center;
@@ -17,6 +20,31 @@ body {
   justify-content: center;
 }
 
+#message {
+  align-items: center;
+  background-color: $alt-color;
+  color:$light;
+  font-size: 18px;
+}
+#sign-out {
+  justify-content: center;
+  display: flex;
+}
+#new-game {
+  justify-content: center;
+  display: flex;
+}
+
 .alt-color {
   background-color: $alt-color;
 }
+// .failure {
+//   background-color: red;
+//   color: $gray-200;
+// }
+// .success {
+//   align-items: center;
+//   background-color: $alt-color;
+//   color:$light;
+//   font-size: 18px;
+// }

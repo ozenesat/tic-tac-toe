@@ -1,94 +1,95 @@
+'use strict'
 
-const board = [
-  '', '', '',
-  '', '', '',
-  '', '', ''
-]
-const player_x =[
-  '', '', '',
-  '', '', '',
-  '', '', ''
-]
-const player_o = [
-  '', '', '',
-  '', '', '',
-  '', '', ''
-]
-const winner = [
-  [0, 1, 2], [3, 4, 5], [6, 7, 8],
-  [0, 3, 6], [1, 4, 7], [2, 5, 8],
-  [0, 4, 8], [2, 4, 6]
-]
-
+const store =require('./store.js')
+const ui =require('./ui.js')
+//control variables
+let gameCheck = 'play'
+let counter = 1
+//control functions
+// game controls if game is over or not
+const game = function (text){
+if (text === 'X') {
+  $("#result").text('X Win!')
+  gameCheck = 'over'
+}
+if (text === 'O') {
+  $("#result").text('O Win!')
+  gameCheck = 'over'
+}
+if (text === 'tie') {
+  $("#result").text('Even-Steven!')
+  gameCheck= 'over'
+}}
+// check control is the winner and tie
 const check = function (user) {
-
   for (let i = 0; i < 8; i++) {
-    let winnerCheck = winner[i]
-    let p1 = board[winnerCheck[0]]
-    let p2 = board[winnerCheck[1]]
-    let p3 = board[winnerCheck[2]]
+    let winnerCheck = store.winner[i]
+    let p1 = store.board[winnerCheck[0]]
+    let p2 = store.board[winnerCheck[1]]
+    let p3 = store.board[winnerCheck[2]]
     console.log
-    if ((p1+p2+p3) === 'XXX') { console.log('X Win!')}
-    else if ((p1+p2+p3) === 'OOO') { console.log('O Win!')}
-       // if (board[winnerCheck[p]].every(x => x === 'user')) {console.log('User ' + user + ' win!')}
-     }
-
-//  if (board[winnerCheck].every(user => user === 'X')) {console.log('User ' + user + ' win!')}
-
-//  if  (winner[i].every(user => board[] === 'X') || winner[i].every(user => user === 'Y')) {
-//    console.log('User ' + user + ' win!')
-//  }
-
+    if ((p1+p2+p3) === 'XXX') { console.log('X Win!')
+  return game('X')
   }
+    if ((p1+p2+p3) === 'OOO') { console.log('O Win!')
+  return game('O')
+  }
+    else if (counter === 10) { console.log('Even-Steven!')
+    return game('tie')
 
+    }
+  }
+}
 
-// if (player_x[0]===player_x[1]===player_x[2] ||
-//     player_x[3]===player_x[4]===player_x[5] ||
-//     player_x[6]===player_x[7]===player_x[8] ||
-//     player_x[0]===player_x[4]===player_x[8] ||
-//     player_x[2]===player_x[4]===player_x[6] ||
-//     player_x[0]===player_x[3]===player_x[6] ||
-//     player_x[1]===player_x[4]===player_x[7] ||
-//     player_x[2]===player_x[5]===player_x[8])
-//     {console.log('Player X won!')}
-// else if (player_o[0]===player_o[1]===player_o[2] ||
-//       player_o[3]===player_o[4]===player_o[5] ||
-//       player_o[6]===player_o[7]===player_o[8] ||
-//       player_o[0]===player_o[4]===player_o[8] ||
-//       player_o[2]===player_o[4]===player_o[6] ||
-//       player_o[0]===player_o[3]===player_o[6] ||
-//       player_o[1]===player_o[4]===player_o[7] ||
-//       player_o[2]===player_o[5]===player_o[8])
-//       {console.log('Player O won!')}
-//       else { }
-//    }
+//restart the game
+const restart = function (){
+  //event.preventDefault()
+  for(let i = 0; i < 9; i++) {
+    $('#'+i).text('')
+  }
+counter = 1
+gameCheck = 'play'
+store.board = [
+  '', '', '',
+  '', '', '',
+  '', '', ''
+]
+$('#result').text('Tic Tac Toe 2020 ®')
+if (store.validation === 1) {
+$('#again').text('Restart The Game')
+} else {}
+}
 
-var counter = 0
+//game logic. while user play, control the board and actions.
 const onPlay = function (event) {
 event.preventDefault()
 let box=$(event.target)
-if (box.text() === '') {counter += 1} else {}
-console.log(counter)
-if(box.text() === '' && box.text() !=='O' && (counter % 2 === 1)) {
+
+if(box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === 'play' && store.validation === 1) {
   box.text('X')
-  board[box.attr("id")] = 'X'
-  player_x[box.attr("id")] = 'X'
+  counter += 1
+  store.board[box.attr("id")] = 'X'
+  $('#again').text('O turn')
+  // store.player_x[box.attr("id")] = 'X'
   check('X')
-//  console.log(player_x)
-} else if (box.text() === '' && box.text() !=='X' && (counter % 2 === 0)) {
+} else if (box.text() === '' && box.text() !=='X' && (counter % 2 === 0) && gameCheck === 'play' && store.validation === 1) {
 box.text('O')
-board[box.attr("id")] = 'O'
-player_o[box.attr("id")] = 'O'
+counter += 1
+store.board[box.attr("id")] = 'O'
+$('#again').text('X turn')
+//store.player_o[box.attr("id")] = 'O'
 check('O')
-//console.log(player_o)
 }
-else {console.log('no!')}
-//console.log('a')
-
+if (store.validation!==1) {
+  $("#again").text('Please sign-in to play the game!')
 }
-
-//if (board === player_o + player_x)
+else if (gameCheck==='over'){
+      $("#again").text('Game is Over / Play Again?')
+}
+console.log(counter)
+}
 
 module.exports = {
-  onPlay
+  onPlay,
+  restart
 }
