@@ -11,15 +11,9 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
-const onGameUpdate = function (event) {
-  event.preventDefault()
-  const gameData = getFormFields(event.target)
-  api.gameUpdate(gameData)
-    .then(ui.onGameUpdateSuccessfull)
-    .catch(ui.onGameUpdatefailure)
-}
+
 
 module.exports = {
-  onNewGame,
-  onGameUpdate
+  onNewGame
+  // onGameUpdate
 }

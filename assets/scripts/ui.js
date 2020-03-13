@@ -16,9 +16,7 @@ const signInSuccess = function (data) {
   $('#again').text('Please Click New Game Button for the New Game')
   console.log('signUpSuccess data is: ', data)
   store.user = data.user
-//  store.validation = 1
-//  events.counter = 1
-  console.log(events.counter)
+  console.log(store)
 }
 const signInFailure = function (error) {
   $('#message').text('Error on sign in')
@@ -36,7 +34,7 @@ const signOutSuccess = function (data) {
   $('#message').text('Signed out successfully!')
   $('#again').text('Please sign-in to play the game!')
   console.log('signOutSuccess data is: ', data)
-  store.validation = 0
+  store.validation = false
   for(let i = 0; i < 9; i++) {
     $('#'+i).text('')
   }
@@ -47,12 +45,13 @@ const signOutFailure = function (error) {
   console.log('singOutFailure error is: ', error)
 }
 
-const newGameSuccessfull = function (event) {
+const newGameSuccessfull = function (data) {
   $('#message').text('New Game Started')
-//  $('again').text('Please Click New Game Button for the New Game')
-store.validation = 1
-events.counter = 1
+  console.log(data)
+  store.game = data.game
+  store.validation = true
 }
+
 
 const newGameFailure = () => {
   $('#message').text('Something went wrong')
@@ -61,8 +60,11 @@ const newGameFailure = () => {
 
 
 const onGameUpdateSuccessfull = function (data) {
-  console.log(data)
+    //event.preventDefault()
+    console.log('data: ', data)
+    console.log("HEY!")
 }
+
 const onGameUpdateFailure = function () {
   console.log('something went wrong')
 }
@@ -77,5 +79,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   newGameSuccessfull,
-  newGameFailure
+  newGameFailure,
+  onGameUpdateSuccessfull,
+  onGameUpdateFailure
 }

@@ -3,6 +3,8 @@
 const config = require('./config')
 const store =require('./store.js')
 
+
+
 const signUp = function (data) {
   console.log('In api.js')
   return $.ajax({
@@ -51,14 +53,25 @@ const newGame = function () {
   })
 }
 
-const gameUpdate = function (data) {
-
-    return $.ajax({
-      url: config.apiUrl +'/games/' + data.id,
-      method: 'PATCH',
-      data,
-    })
+const gameUpdate = function (div, letter, validation) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data : {
+      "game": {
+        "cell": {
+          "index": div.id,
+          "value": letter
+    },
+    "over": validation
+  }
 }
+  })
+}
+
 
 
 

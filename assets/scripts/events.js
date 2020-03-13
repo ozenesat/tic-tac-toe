@@ -1,11 +1,14 @@
 'use strict'
-
+const ui = require('./ui')
+const api = require('./api')
 const store =require('./store.js')
-const ui =require('./ui.js')
+const getFormFields = require('../../lib/get-form-fields')
 //control variables
+
 let gameCheck = 'play'
+
 let counter = 1
-//control functions
+let letter = 'x'
 // game controls if game is over or not
 const game = function (text){
 if (text === 'X') {
@@ -43,11 +46,12 @@ const check = function (user) {
 
 //restart the game
 const restart = function (){
-  //event.preventDefault()
+  event.preventDefault()
   for(let i = 0; i < 9; i++) {
     $('#'+i).text('')
   }
 counter = 1
+console.log(counter)
 gameCheck = 'play'
 store.board = [
   '', '', '',
@@ -55,41 +59,48 @@ store.board = [
   '', '', ''
 ]
 $('#result').text('Tic Tac Toe 2020 ®')
-if (store.validation === 1) {
-$('#again').text('Restart The Game')
-} else {}
+if (store.validation === true) {
+$('#again').text('Restart The Game') }
 }
 
 //game logic. while user play, control the board and actions.
 const onPlay = function (event) {
-event.preventDefault()
-let box=$(event.target)
-
-if(box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === 'play' && store.validation === 1) {
-  box.text('X')
+  let box = $(event.target)
+  //store.position = box[0].id
+if(box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === 'play' && store.validation === true) {
+  letter = 'X'
+  box.text(letter)
   counter += 1
-  store.board[box.attr("id")] = 'X'
-  $('#again').text('O turn')
+  store.board[box.attr("id")] = letter
+  $('#again').text('O Turn / Restart The Game')
   // store.player_x[box.attr("id")] = 'X'
   check('X')
-} else if (box.text() === '' && box.text() !=='X' && (counter % 2 === 0) && gameCheck === 'play' && store.validation === 1) {
-box.text('O')
+} else if (box.text() === '' && box.text() !=='X' && (counter % 2 === 0) && gameCheck === 'play' && store.validation === true) {
+letter = 'O'
+box.text(letter)
 counter += 1
-store.board[box.attr("id")] = 'O'
-$('#again').text('X turn')
+store.board[box.attr("id")] = letter
+$('#again').text('X Turn / Restart The Game')
 //store.player_o[box.attr("id")] = 'O'
 check('O')
 }
-if (store.validation!==1) {
+if (store.validation!==true) {
   $("#again").text('Please sign-in to play the game!')
 }
 else if (gameCheck==='over'){
       $("#again").text('Game is Over / Play Again?')
 }
-console.log(counter)
+api.gameUpdate(event.target, letter, store.validation)
+  .then(ui.onGameUpdateSuccessfull)
+  .catch(ui.onGameUpdatefailure)
 }
 
+
+console.log(counter)
+
+
 module.exports = {
-  onPlay,
-  restart
+onPlay,
+restart,
+counter
 }
