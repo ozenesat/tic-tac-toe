@@ -11,9 +11,19 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
+const onShowGame = function (event) {
+  event.preventDefault()
+  console.log(api)
+  const data = getFormFields(event.target)
+  api.showGame(data)
+    .then(ui.showGameSuccesfull)
+    .catch(ui.showGameFailure)
+}
 
+const onStats = function (event) {
 
+}
 module.exports = {
-  onNewGame
-  // onGameUpdate
+  onNewGame,
+  onShowGame
 }

@@ -96,7 +96,7 @@ api.gameUpdate(event.target, letter, store.validation)
 }
 
 
-console.log(counter)
+//console.log(counter)
 
 
 module.exports = {

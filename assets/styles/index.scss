@@ -34,17 +34,14 @@ fieldset {
   justify-content: center;
   display: flex;
 }
+#stats {
+  justify-content: center;
+  display: flex;
+}
 
 .alt-color {
   background-color: $alt-color;
 }
-// .failure {
-//   background-color: red;
-//   color: $gray-200;
-// }
-// .success {
-//   align-items: center;
-//   background-color: $alt-color;
-//   color:$light;
-//   font-size: 18px;
-// }
+.hide  {
+  display: none;
+}

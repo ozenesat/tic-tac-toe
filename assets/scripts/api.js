@@ -66,13 +66,23 @@ const gameUpdate = function (div, letter, validation) {
           "index": div.id,
           "value": letter
     },
-    "over": validation
+    "over": !validation
   }
 }
   })
 }
 
+const showGame = function (data) {
+  return $.ajax({
+    url: config.apiUrl,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
 
+}
 
 
 
@@ -82,5 +92,6 @@ module.exports = {
   changePassword,
   signOut,
   newGame,
-  gameUpdate
+  gameUpdate,
+  showGame
 }

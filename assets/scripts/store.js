@@ -21,7 +21,7 @@ const winner = [
 ]
 
 let  validation=false
-
+let stats = 0
 
 const store = {
 }
@@ -36,5 +36,6 @@ module.exports = {
   player_o,
   player_x,
   winner,
-  validation
+  validation,
+  stats
 }
