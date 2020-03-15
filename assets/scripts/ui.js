@@ -6,6 +6,7 @@ const events = require('./events')
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   console.log('signUpSuccess data is: ', data)
+  $('#sign-up').addClass('hide')
 }
 const signUpFailure = function (error) {
   $('#message').text('Error on sign up')
@@ -38,6 +39,7 @@ const signOutSuccess = function (data) {
   $('a').addClass('hide')
   $('cp').addClass('hide')
   $('signs').removeClass('hide')
+  $('#sign-up').removeClass('hide')
   console.log('signOutSuccess data is: ', data)
   store.validation = false
   for(let i = 0; i < 9; i++) {

@@ -12,11 +12,11 @@ let letter = 'x'
 // game controls if game is over or not
 const game = function (text){
 if (text === 'X') {
-  $("#result").text('X Win!')
+  $("#result").text('X Wins!')
   gameCheck = 'over'
 }
 if (text === 'O') {
-  $("#result").text('O Win!')
+  $("#result").text('O Wins!')
   gameCheck = 'over'
 }
 if (text === 'tie') {
@@ -31,10 +31,10 @@ const check = function (user) {
     let p2 = store.board[winnerCheck[1]]
     let p3 = store.board[winnerCheck[2]]
     console.log
-    if ((p1+p2+p3) === 'XXX') { console.log('X Win!')
+    if ((p1+p2+p3) === 'XXX') { console.log('X Wins!')
   return game('X')
   }
-    if ((p1+p2+p3) === 'OOO') { console.log('O Win!')
+    if ((p1+p2+p3) === 'OOO') { console.log('O Wins!')
   return game('O')
   }
     else if (counter === 10) { console.log('Even-Steven!')
@@ -67,7 +67,11 @@ $('#again').text('Restart The Game') }
 const onPlay = function (event) {
   let box = $(event.target)
   //store.position = box[0].id
-if(box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === 'play' && store.validation === true) {
+  if (box.text() !== ''  && gameCheck === 'play' && store.validation === true) {
+    $('#again').text('Please click an empty space! / Restart The Game')
+  }
+
+  if (box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === 'play' && store.validation === true) {
   letter = 'X'
   box.text(letter)
   counter += 1
