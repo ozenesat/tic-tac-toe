@@ -2,7 +2,7 @@
 <html>
 
     <head>
-      <title>Tic Toc Toe Game</title>
+      <title>Tic Tac Toe Game</title>
       <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Frijole&display=swap" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,11 +19,22 @@
       <div class="container">
       <div class="row">
           <div id='top' class="col-12 box alt-color">Tic Tac Toe</div>
-          <h2 id='message'class="col-12 box alt-color"> Sign-up/-in to play!</h2>
+          <h2 id='top-left' class="col-6 box alt-color"> Sign-up!</h2>
+          <h2 id='top-right' class="col-6 box alt-color"> Sign-in!</h2>
+          <cp class="container row hide">
+          <h2 id='change-pass' class="col-6 box alt-color"> Change Password!</h2>
+          <h2 id='sign-out' class="col-6 box alt-color"> Sign-out!</h2>
+          <form id="change-password" class="border hide">
+            <fieldset>
+              <input type="password" name="passwords[old]" placeholder="Old Password">
+              <input type="password" name="passwords[new]" placeholder="New Password">
+              <input type="submit" value="Change password!">
+            </fieldset>
+          </form>
         </div>
       </div>
-    <signs>
-      <form id="sign-up" class="border">
+      </cp>
+        <form id="sign-up" class="border hide">
         <fieldset>
           <input type="email" name="credentials[email]" placeholder="Email">
           <input type="password" name="credentials[password]" placeholder="Password">
@@ -31,21 +42,18 @@
           <input type="submit" value="Sign up!">
         </fieldset>
       </form>
-
-      <form id="sign-in" class="border">
+      <form id="sign-in" class="border hide">
         <fieldset>
           <input type="email" name="credentials[email]" placeholder="Email">
           <input type="password" name="credentials[password]" placeholder="Password">
           <input type="submit" value="Sign in!">
         </fieldset>
       </form>
-    </signs>
-
-
+        <img id='img' src="https://sashabausheva.github.io/tictactoe-client/public/images/welcome-img.gif" alt="tic-tac-gif"width="600" height="328">
 <br>
-    <a>
+    <aboard>
       <div class="container">
-          <div id=gameBoard class="row hide">
+            <div id=gameBoard class="row hide">
             <div id=0 class="col-4 box alt-color"></div>
             <div id=1 class="col-4 box alt-color"></div>
             <div id=2 class="col-4 box alt-color"></div>
@@ -57,32 +65,18 @@
             <div id=8 class="col-4 box alt-color"></div>
           </div>
         </div>
-    </a>
+    </aboard>
         <br>
         <br>
 
         <div class="container">
             <div class="row">
               <div id="again" class="col-12 box alt-color">Please sign-in to play the game!</div>
-              <div id="result" class="col-12 box alt-color">  2020 ® </div>
+              <div id="result" class="col-12 box alt-color">
+                <a class="nav-link" href="https://www.linkedin.com/in/esatozen/" target="_blank"> © 2020 ® </a>
+              </div>
             </div>
           </div>
-          <cp class="hide">
-            <form id="change-password" class="border">
-
-              <fieldset>
-                <input type="password" name="passwords[old]" placeholder="Old Password">
-                <input type="password" name="passwords[new]" placeholder="New Password">
-                <input type="submit" value="Change password!">
-              </fieldset>
-            </form>
-
-          <fieldset>
-            <form id="sign-out" class="border">
-                  <input type="submit" value="Sign out!">
-              </form>
-            </fieldset>
-              </cp>
 
 
     </body>

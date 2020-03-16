@@ -5,6 +5,9 @@ $font-color: $light;
 
 body {
   background-color: $body-bg-color;
+  margin: 75px 175px;
+  border: 9px solid rgba(1,10,90,0.6);
+  border-radius: 20px;
 }
 fieldset {
   text-align: center;
@@ -13,7 +16,7 @@ fieldset {
 .box {
   align-items: center;
   background-color: $secondary;
-  border: 2px solid $white;
+  border: 2px solid $white    ;
   color: $font-color;
   display: flex;
   height: 80px;
@@ -27,16 +30,14 @@ fieldset {
 
 #gameBoard {
     font-family: 'Monoton', cursive;
-//font-family: 'Frijole', cursive;
   font-size:52px;
 }
 
-#message {
-  align-items: center;
-  background-color: $alt-color;
-  color:$light;
-  font-size: 21px;
+h2 {
+  font-size: 24px;
 }
+
+
 #sign-out {
   justify-content: center;
   display: flex;
@@ -47,16 +48,23 @@ fieldset {
   display: flex;
 }
 #again {
-  font-size: 21px;
+  font-size: 24px;
 }
 #result {
   font-family: 'Faster One', cursive;
   font-size: 32px;
 }
-
+a {
+  color:$light;
+}
 .alt-color {
   background-color: $alt-color;
 }
 .hide  {
   display: none;
+}
+img  {
+  margin: 10px auto 20px;
+  display: block;
+  flex:auto;
 }
