@@ -13,8 +13,9 @@ const signUpFailure = function (error) {
 }
 const signInSuccess = function (data) {
   $('#sign-in').addClass('hide')
-  $('cp').removeClass('hide')
-  $('#top-left').text('Signed in successfully')
+  $('#change-pass').removeClass('hide')
+  $('#sign-out').removeClass('hide')
+  $('#top-right').text('Signed in successfully')
   $('#again').text('Start a New Game')
   $('#top-right').addClass('hide')
   $('#top-left').addClass('hide')
@@ -22,7 +23,7 @@ const signInSuccess = function (data) {
   store.user = data.user
 }
 const signInFailure = function (error) {
-  $('#top-left').text('Error on sign in!/Please try again.')
+  $('#top-right').text('Error on sign in!/Please try again.')
 }
 const changePass = function () {
   $('#change-password').removeClass('hide')
@@ -32,17 +33,21 @@ const changePasswordSuccess = function (data) {
   $('#change-password').addClass('hide')
 }
 const changePasswordFailure = function (error) {
-  $('#change-pass').text('Error on changing password')
+  $('#change-pass').text('Error on changing password/ Try again.')
 //  console.log('changePasswordFailure error is: ', error)
 }
 const signOutSuccess = function (data) {
   $('#result').text('Signed out successfully!')
+  $('#result').removeClass('X')
+  $('#result').removeClass('O')
   $('#again').text('Please sign-in to play the game!')
   $('aboard').addClass('hide')
-  $('cp').addClass('hide')
+  $('#change-pass').addClass('hide')
+  $('#sign-out').addClass('hide')
   $('#top-left').removeClass('hide')
   $('#top-right').removeClass('hide')
   $('#top-left').text('Sign-up!')
+  $('#top-right').text('Sign-in!')
   $('#img').removeClass('hide')
   $('#change-pass').text('Change Password!')
   store.validation = false

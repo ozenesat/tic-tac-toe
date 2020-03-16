@@ -21,9 +21,10 @@
           <div id='top' class="col-12 box alt-color">Tic Tac Toe</div>
           <h2 id='top-left' class="col-6 box alt-color"> Sign-up!</h2>
           <h2 id='top-right' class="col-6 box alt-color"> Sign-in!</h2>
-          <cp class="container row hide">
-          <h2 id='change-pass' class="col-6 box alt-color"> Change Password!</h2>
-          <h2 id='sign-out' class="col-6 box alt-color"> Sign-out!</h2>
+
+          <h2 id='change-pass' class="col-6 box alt-color hide"> Change Password!</h2>
+          <h2 id='sign-out' class="col-6 box alt-color hide"> Sign-out!</h2>
+          <cp>
           <form id="change-password" class="border hide">
             <fieldset>
               <input type="password" name="passwords[old]" placeholder="Old Password">
@@ -31,9 +32,10 @@
               <input type="submit" value="Change password!">
             </fieldset>
           </form>
+          </cp>
         </div>
       </div>
-      </cp>
+
         <form id="sign-up" class="border hide">
         <fieldset>
           <input type="email" name="credentials[email]" placeholder="Email">
