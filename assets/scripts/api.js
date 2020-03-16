@@ -6,15 +6,14 @@ const store =require('./store.js')
 
 
 const signUp = function (data) {
-  console.log('In api.js')
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
     data
   })
 }
+
 const signIn = function (data) {
-  console.log('In api.js')
   return $.ajax({
     url:config.apiUrl + '/sign-in',
     method: 'POST',
@@ -22,7 +21,6 @@ const signIn = function (data) {
   })
 }
 const changePassword = function (data) {
-  console.log('In api.js')
   return $.ajax({
     url:config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -33,7 +31,6 @@ const changePassword = function (data) {
   })
 }
 const signOut = function (data) {
-  console.log('In api.js')
   return $.ajax({
     url:config.apiUrl + '/sign-out',
     method: 'DELETE',

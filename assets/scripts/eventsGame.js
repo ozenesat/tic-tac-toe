@@ -13,7 +13,6 @@ const onNewGame = function (event) {
 
 const onShowGame = function (event) {
   event.preventDefault()
-  console.log(api)
   const data = getFormFields(event.target)
   api.showGame(data)
     .then(ui.showGameSuccesfull)

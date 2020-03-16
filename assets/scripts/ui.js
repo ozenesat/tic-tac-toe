@@ -10,7 +10,6 @@ const signUpSuccess = function (data) {
 }
 const signUpFailure = function (error) {
   $('#top-left').text('Error on sign up!/Please try again.')
-//  console.log('signUpFailure error is: ', error)
 }
 const signInSuccess = function (data) {
   $('#sign-in').addClass('hide')
@@ -24,7 +23,6 @@ const signInSuccess = function (data) {
 }
 const signInFailure = function (error) {
   $('#top-left').text('Error on sign in!/Please try again.')
-//  console.log('signInFailure error is: ', error)
 }
 const changePass = function () {
   $('#change-password').removeClass('hide')
@@ -47,7 +45,6 @@ const signOutSuccess = function (data) {
   $('#top-left').text('Sign-up!')
   $('#img').removeClass('hide')
   $('#change-pass').text('Change Password!')
-//  console.log('signOutSuccess data is: ', data)
   store.validation = false
   for(let i = 0; i < 9; i++) {
     $('#'+i).text('')
@@ -56,7 +53,6 @@ const signOutSuccess = function (data) {
 }
 const signOutFailure = function (error) {
   $('#message').text('Error on signing out')
-//  console.log('singOutFailure error is: ', error)
 }
 const newGameSuccessfull = function (data) {
   $('#message').text('New Game Started')
@@ -64,7 +60,6 @@ const newGameSuccessfull = function (data) {
   $('#gameBoard').removeClass('hide')
   $('aboard').removeClass('hide')
   $('#img').addClass('hide')
-//  console.log(data)
   store.game = data.game
   store.validation = true
   store.stats += 1
@@ -75,19 +70,14 @@ const onStats = function (event) {
 }
 const newGameFailure = () => {
   $('#message').text('Something went wrong')
-//  console.log('Something went wrong')
 }
 const onGameUpdateSuccessfull = function (data) {
-//    console.log('data: ', data)
 }
 const onGameUpdateFailure = function () {
-//  console.log('something went wrong')
 }
 const showGameSuccesfull = function (data) {
-//    console.log('data: ', data)
 }
 const showGameFailure = function () {
-//  console.log('something went wrong')
 }
 const signLeft = function () {
   $('#sign-up').removeClass('hide')
