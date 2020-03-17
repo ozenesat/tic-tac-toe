@@ -12,7 +12,6 @@ const ui = require('./ui.js')
 
 
 $(() => {
-  // your JS code goes here
   $('#gameBoard').on('click', events.onPlay)
   $('#again').on('click', events.restart)
   $('#sign-up').on('submit', eventsUser.onSignUp)
@@ -25,5 +24,5 @@ $(() => {
   $('#top-left').on('click', ui.signLeft)
   $('#top-right').on('click', ui.signRight)
   $('#change-pass').on('click', ui.changePass)
-  //$('#games').on('click',ui.showGame)
+  $('#p').on('click', ui.showGame)
 })

@@ -74,6 +74,11 @@ img  {
   text-align: center;
 }
 
+.warning {
+  background-color: #c81912;
+  font-family: 'Frijole', cursive;
+}
+
 @media (max-width: 980px) {
   #img {
     max-width:100%;

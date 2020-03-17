@@ -47,6 +47,7 @@ const changePasswordFailure = function (error) {
 
 const signOutSuccess = function (data) {
   $('#result').text('Signed out successfully!')
+  $('#change-password').addClass('hide')
   $('#result').removeClass('X')
   $('#result').removeClass('O')
   $('#again').text('Please sign-in to play the game!')
@@ -80,6 +81,7 @@ const newGameSuccessfull = function (data) {
   $('#gameBoard').removeClass('hide')
   $('aboard').removeClass('hide')
   $('#img').addClass('hide')
+  $('#change-password').addClass('hide')
   store.game = data.game
   store.validation = true
 }
@@ -122,10 +124,11 @@ const onGetGamesSuccess = function (data) {
     }
 }
 
-// const showGame = function (event) {
-//   event.preventDefault()
-//   console.log(event.target)
-// }
+const showGame = function (event) {
+  event.preventDefault()
+  console.log(event.target)
+  console.log('something')
+}
 
 const onGetGamesFailure = function() {
   $('#get-games').text('Error on getting games.')
@@ -150,5 +153,6 @@ module.exports = {
   signLeft,
   changePass,
   onGetGamesSuccess,
-  onGetGamesFailure
+  onGetGamesFailure,
+  showGame
 }

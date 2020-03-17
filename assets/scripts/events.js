@@ -60,11 +60,13 @@ $('#result').removeClass('X')
 $('#result').removeClass('O')
 if (store.validation === true) {
 $('#again').text('Restart The Game')
-$('#stats').text('Stats')
+$('#again').removeClass('warning')
+$('#stats').text('Get Stats')
 $('#change-password').addClass('hide')
 $('#p').text('')
 $('#change-pass').text('Change Password!')
-$('#result').text('© Tic Tac Toe 2020 ®')}
+$('#result').text('© Tic Tac Toe 2020 ®')
+$('#change-pass').text('Change Password!')}
 }
 
 //game logic. while user play, control the board and actions.
@@ -72,6 +74,7 @@ const onPlay = function (event) {
   let box = $(event.target)
   //store.position = box[0].id
   if (box.text() !== ''  && gameCheck === true && store.validation === true) {
+    $('#again').addClass('warning')
     $('#again').text('Please click an empty space on the game board! / Restart The Game')
   }
 
@@ -79,6 +82,7 @@ const onPlay = function (event) {
   letter = 'X'
   box.text(letter)
   $(box).addClass('X')
+  $('#again').removeClass('warning')
   counter += 1
   store.board[box.attr("id")] = letter
   $('#again').text("O's Turn / Restart The Game")
@@ -90,15 +94,18 @@ box.text(letter)
 $(box).addClass('O')
 counter += 1
 store.board[box.attr("id")] = letter
+$('#again').removeClass('warning')
 $('#again').text("X's Turn / Restart The Game")
 //store.player_o[box.attr("id")] = 'O'
 check('O')
 }
 if (store.validation !== true) {
   $("#again").text('Please sign-in to play the game!')
+  $('#again').removeClass('warning')
 }
 else if (gameCheck === false){
       $("#again").text('Game is Over / Play Again?')
+      $('#again').addClass('warning')
 }
 api.gameUpdate(event.target, letter, gameCheck)
   .then(ui.onGameUpdateSuccessfull)
