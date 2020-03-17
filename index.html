@@ -16,14 +16,18 @@
     </head>
 
     <body>
+      <br>
+      <!-- top rows for title/sign-up/-in/change password/sign-out. -->
       <div class="container">
       <div class="row">
           <div id='top' class="col-12 box alt-color">Tic Tac Toe</div>
           <h2 id='top-left' class="col-6 box alt-color"> Sign-up!</h2>
           <h2 id='top-right' class="col-6 box alt-color"> Sign-in!</h2>
 
-          <h2 id='change-pass' class="col-6 box alt-color hide"> Change Password!</h2>
-          <h2 id='sign-out' class="col-6 box alt-color hide"> Sign-out!</h2>
+          <h2 id='change-pass' class="col-4 box alt-color hide"> Change Password!</h2>
+          <h2 id='stats' class="col-4 box alt-color hide"> Get Stats!</h2>
+          <h2 id='sign-out' class="col-4 box alt-color hide"> Sign-out!</h2>
+
           <cp>
           <form id="change-password" class="border hide">
             <fieldset>
@@ -52,7 +56,8 @@
         </fieldset>
       </form>
         <img id='img' src="https://sashabausheva.github.io/tictactoe-client/public/images/welcome-img.gif" alt="tic-tac-gif"width="600" height="328">
-<br>
+  <br>
+      <!-- gameboard  -->
     <aboard>
       <div class="container">
             <div id=gameBoard class="row hide">
@@ -70,16 +75,17 @@
     </aboard>
         <br>
         <br>
-
+      <!-- bottom rows for results and restart etc. -->
         <div class="container">
             <div class="row">
               <div id="again" class="col-12 box alt-color">Please sign-in to play the game!</div>
               <div id="result" class="col-12 box alt-color">
-                <a class="nav-link" href="https://www.linkedin.com/in/esatozen/" target="_blank"> © 2020 ® </a>
+                <a href="https://www.linkedin.com/in/esatozen/"> © 2020 ® </a>
               </div>
+              <h2 id='get-games' class="col-12 box alt-color hide"> Get Games!</h2>
             </div>
           </div>
 
-
+          <p id="p"> <games id="games"> </games> </p>
     </body>
 </html>

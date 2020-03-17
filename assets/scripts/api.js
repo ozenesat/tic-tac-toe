@@ -20,6 +20,7 @@ const signIn = function (data) {
     data
   })
 }
+
 const changePassword = function (data) {
   return $.ajax({
     url:config.apiUrl + '/change-password',
@@ -30,6 +31,7 @@ const changePassword = function (data) {
     data
   })
 }
+
 const signOut = function (data) {
   return $.ajax({
     url:config.apiUrl + '/sign-out',
@@ -50,7 +52,7 @@ const newGame = function () {
   })
 }
 
-const gameUpdate = function (div, letter, validation) {
+const gameUpdate = function (div, letter, gameCheck) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -63,24 +65,41 @@ const gameUpdate = function (div, letter, validation) {
           "index": div.id,
           "value": letter
     },
-    "over": !validation
+    "over": !gameCheck
   }
 }
   })
 }
 
-const showGame = function (data) {
+const getGames = function (data) {
+  if (data === undefined) {
+    return $.ajax({
+      url: config.apiUrl + '/games',
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + store.user.token
+      }
+    }) // return
+  }
+  // return games that are over
   return $.ajax({
-    url: config.apiUrl,
+    url: config.apiUrl + '/games[?over=]',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
   })
-
 }
 
+const gameStats = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 
 module.exports = {
@@ -90,5 +109,6 @@ module.exports = {
   signOut,
   newGame,
   gameUpdate,
-  showGame
+  getGames,
+  gameStats
 }

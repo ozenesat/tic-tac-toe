@@ -5,9 +5,13 @@ const store =require('./store.js')
 const getFormFields = require('../../lib/get-form-fields')
 //control variables
 
-let gameCheck = 'play'
+// check variable which shows if the game is over or not, used all functions of the game logic
+let gameCheck = true
+// counter for the decide if it X or O with % 2
 let counter = 1
+// user's sign for the game
 let letter = 'x'
+// extra variable for the even-steven bug of the check funtion
 let es = 0
 //check the board for winner
 const check = function (user) {
@@ -19,18 +23,18 @@ const check = function (user) {
     if ((p1+p2+p3) === 'XXX') {
   $("#result").text('X Wins!')
   $('#result').addClass('X')
-  gameCheck = 'over'
-  es = 1;
+  gameCheck = false
+  es = 1
   }
     if ((p1+p2+p3) === 'OOO') {
   $("#result").text('O Wins!')
   $('#result').addClass('O')
-  gameCheck = 'over'
+  gameCheck = false
   es = 2;
   }
 }  if (counter === 10 && es === 0) {
   $("#result").text('Even-Steven!')
-  gameCheck= 'over'
+  gameCheck= false
     }
 
 }
@@ -45,28 +49,33 @@ const restart = function (){
   }
 es = 0
 counter = 1
-gameCheck = 'play'
+gameCheck = true
+//store.validation = true
 store.board = [
   '', '', '',
   '', '', '',
   '', '', ''
 ]
-$('#result').text('© Tic Tac Toe 2020 ®')
 $('#result').removeClass('X')
 $('#result').removeClass('O')
 if (store.validation === true) {
-$('#again').text('Restart The Game') }
+$('#again').text('Restart The Game')
+$('#stats').text('Stats')
+$('#change-password').addClass('hide')
+$('#p').text('')
+$('#change-pass').text('Change Password!')
+$('#result').text('© Tic Tac Toe 2020 ®')}
 }
 
 //game logic. while user play, control the board and actions.
 const onPlay = function (event) {
   let box = $(event.target)
   //store.position = box[0].id
-  if (box.text() !== ''  && gameCheck === 'play' && store.validation === true) {
+  if (box.text() !== ''  && gameCheck === true && store.validation === true) {
     $('#again').text('Please click an empty space on the game board! / Restart The Game')
   }
 
-  if (box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === 'play' && store.validation === true) {
+  if (box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === true && store.validation === true) {
   letter = 'X'
   box.text(letter)
   $(box).addClass('X')
@@ -75,7 +84,7 @@ const onPlay = function (event) {
   $('#again').text("O's Turn / Restart The Game")
   // store.player_x[box.attr("id")] = 'X'
   check('X')
-} else if (box.text() === '' && box.text() !=='X' && (counter % 2 === 0) && gameCheck === 'play' && store.validation === true) {
+} else if (box.text() === '' && box.text() !=='X' && (counter % 2 === 0) && gameCheck === true && store.validation === true) {
 letter = 'O'
 box.text(letter)
 $(box).addClass('O')
@@ -85,13 +94,13 @@ $('#again').text("X's Turn / Restart The Game")
 //store.player_o[box.attr("id")] = 'O'
 check('O')
 }
-if (store.validation!==true) {
+if (store.validation !== true) {
   $("#again").text('Please sign-in to play the game!')
 }
-else if (gameCheck==='over'){
+else if (gameCheck === false){
       $("#again").text('Game is Over / Play Again?')
 }
-api.gameUpdate(event.target, letter, store.validation)
+api.gameUpdate(event.target, letter, gameCheck)
   .then(ui.onGameUpdateSuccessfull)
   .catch(ui.onGameUpdatefailure)
 }

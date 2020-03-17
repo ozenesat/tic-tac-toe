@@ -1,4 +1,5 @@
 'use strict'
+// constants which are used for store constant variables before user's actions.
 const board = [
   '', '', '',
   '', '', '',
@@ -20,15 +21,12 @@ const winner = [
   [0, 4, 8], [2, 4, 6]
 ]
 
+// variables for games api functions
 let  validation=false
 let stats = 0
 
 const store = {
 }
-
-
-
-
 
 module.exports = {
   store,
