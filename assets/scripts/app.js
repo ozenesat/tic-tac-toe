@@ -2,6 +2,7 @@
 const events = require('./events.js')
 const eventsUser = require('./eventsUser.js')
 const eventsGame = require('./eventsGame.js')
+const ui = require('./ui.js')
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
@@ -17,7 +18,12 @@ $(() => {
   $('#sign-up').on('submit', eventsUser.onSignUp)
   $('#sign-in').on('submit', eventsUser.onSignIn)
   $('#change-password').on('submit', eventsUser.onChangePassword)
-  $('#sign-out').on('submit', eventsUser.onSignOut)
-  $('#new-game').on('submit', eventsGame.onNewGame)
-  $('#gameBoard').on('click', eventsGame.onGameUpdate)
+  $('#sign-out').on('click', eventsUser.onSignOut)
+  $('#again').on('click', eventsGame.onNewGame)
+  $('#stats').on('click', eventsGame.onStats)
+  $('#get-games').on('click', eventsGame.onGetGames)
+  $('#top-left').on('click', ui.signLeft)
+  $('#top-right').on('click', ui.signRight)
+  $('#change-pass').on('click', ui.changePass)
+  //$('#games').on('click',ui.showGame)
 })

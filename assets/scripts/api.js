@@ -3,24 +3,25 @@
 const config = require('./config')
 const store =require('./store.js')
 
+
+
 const signUp = function (data) {
-  console.log('In api.js')
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
     data
   })
 }
+
 const signIn = function (data) {
-  console.log('In api.js')
   return $.ajax({
     url:config.apiUrl + '/sign-in',
     method: 'POST',
     data
   })
 }
+
 const changePassword = function (data) {
-  console.log('In api.js')
   return $.ajax({
     url:config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -30,8 +31,8 @@ const changePassword = function (data) {
     data
   })
 }
+
 const signOut = function (data) {
-  console.log('In api.js')
   return $.ajax({
     url:config.apiUrl + '/sign-out',
     method: 'DELETE',
@@ -51,13 +52,20 @@ const newGame = function () {
   })
 }
 
+<<<<<<< HEAD
 const gameUpdate = function (id, letter, bool) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.user.id,
+=======
+const gameUpdate = function (div, letter, gameCheck) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+>>>>>>> final
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
+<<<<<<< HEAD
     data: {
       'game': {
         'cell': {
@@ -66,11 +74,49 @@ const gameUpdate = function (id, letter, bool) {
         },
         'over': validation
       }
+=======
+    data : {
+      "game": {
+        "cell": {
+          "index": div.id,
+          "value": letter
+    },
+    "over": !gameCheck
+  }
+}
+  })
+}
+
+const getGames = function (data) {
+  if (data === undefined) {
+    return $.ajax({
+      url: config.apiUrl + '/games',
+      method: 'GET',
+      headers: {
+        Authorization: 'Token token=' + store.user.token
+      }
+    }) // return
+  }
+  // return games that are over
+  return $.ajax({
+    url: config.apiUrl + '/games[?over=]',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+>>>>>>> final
     }
   })
 }
 
-
+const gameStats = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 
 module.exports = {
@@ -79,5 +125,7 @@ module.exports = {
   changePassword,
   signOut,
   newGame,
-  gameUpdate
+  gameUpdate,
+  getGames,
+  gameStats
 }

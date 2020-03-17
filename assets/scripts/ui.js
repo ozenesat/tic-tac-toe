@@ -4,67 +4,147 @@ const store = require('./store')
 const events = require('./events')
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully')
-  console.log('signUpSuccess data is: ', data)
+  $('#top-left').text('Signed up successfully!')
+  $('#sign-up').addClass('hide')
+  $('#sign-in').removeClass('hide')
 }
+
 const signUpFailure = function (error) {
-  $('#message').text('Error on sign up')
-  console.log('signUpFailure error is: ', error)
+  $('#top-left').text('Error on sign up!/Please try again.')
 }
+
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully')
-  $('#again').text('Please Click New Game Button for the New Game')
-  console.log('signUpSuccess data is: ', data)
+  $('#sign-in').addClass('hide')
+  $('#change-pass').removeClass('hide')
+  $('#sign-out').removeClass('hide')
+  $('#top-right').text('Signed in successfully')
+  $('#again').text('Start a New Game')
+  $('#top-right').addClass('hide')
+  $('#top-left').addClass('hide')
+  $('#stats').removeClass('hide')
+  $('#result').text('© Tic Tac Toe 2020 ®')
+  $('#get-games').removeClass('hide')
   store.user = data.user
+<<<<<<< HEAD
 //  store.validation = true
 //  events.counter = 1
   console.log(events.counter)
+=======
+>>>>>>> final
 }
+
 const signInFailure = function (error) {
-  $('#message').text('Error on sign in')
-  console.log('signInFailure error is: ', error)
+  $('#top-right').text('Error on sign in!/Please try again.')
 }
+
+const changePass = function () {
+  $('#change-password').removeClass('hide')
+}
+
 const changePasswordSuccess = function (data) {
-  $('#message').text('Password changed successfully')
-  console.log('changePasswordSuccess data is: ', data)
+  $('#change-pass').text('Password changed successfully.')
+  $('#change-password').addClass('hide')
 }
+
 const changePasswordFailure = function (error) {
-  $('#message').text('Error on changing password')
-  console.log('changePasswordFailure error is: ', error)
+  $('#change-pass').text('Error on changing password/ Try again.')
+
 }
+
 const signOutSuccess = function (data) {
-  $('#message').text('Signed out successfully!')
+  $('#result').text('Signed out successfully!')
+  $('#result').removeClass('X')
+  $('#result').removeClass('O')
   $('#again').text('Please sign-in to play the game!')
+<<<<<<< HEAD
   console.log('signOutSuccess data is: ', data)
+=======
+  $('aboard').addClass('hide')
+  $('#change-pass').addClass('hide')
+  $('#sign-out').addClass('hide')
+  $('#top-left').removeClass('hide')
+  $('#top-right').removeClass('hide')
+  $('#top-left').text('Sign-up!')
+  $('#top-right').text('Sign-in!')
+  $('#img').removeClass('hide')
+  $('#change-pass').text('Change Password!')
+  $('#stats').addClass('hide')
+  $('#stats').text('Get Stats!')
+  $('#get-games').addClass('hide')
+  $('#p').text('')
+>>>>>>> final
   store.validation = false
   for(let i = 0; i < 9; i++) {
     $('#'+i).text('')
   }
-//  events.restart()
-}
-const signOutFailure = function (error) {
-  $('#message').text('Error on signing out')
-  console.log('singOutFailure error is: ', error)
+
 }
 
-const newGameSuccessfull = function (event) {
+const signOutFailure = function (error) {
+  $('#message').text('Error on signing out')
+}
+
+const newGameSuccessfull = function (data) {
   $('#message').text('New Game Started')
+<<<<<<< HEAD
 //  $('again').text('Please Click New Game Button for the New Game')
 store.validation = true
 events.counter = 1
+=======
+  $('#again').text('Restart The Game')
+  $('#gameBoard').removeClass('hide')
+  $('aboard').removeClass('hide')
+  $('#img').addClass('hide')
+  store.game = data.game
+  store.validation = true
+>>>>>>> final
 }
 
 const newGameFailure = () => {
   $('#message').text('Something went wrong')
-  console.log('Something went wrong')
 }
 
+const statsSuccessfull = function (data) {
+  $('#stats').text('Total Games Played: ' + data.games.length)
+}
+
+const statsFailure = function () {
+  $('#stats').text('Error on getting stats')
+}
 
 const onGameUpdateSuccessfull = function (data) {
-  console.log(data)
+  store.game = data.game
 }
+
 const onGameUpdateFailure = function () {
-  console.log('something went wrong')
+}
+
+const signLeft = function () {
+  $('#sign-up').removeClass('hide')
+  $('#sign-in').addClass('hide')
+}
+
+const signRight = function () {
+  $('#sign-in').removeClass('hide')
+  $('#sign-up').addClass('hide')
+}
+
+const onGetGamesSuccess = function (data) {
+  $('#p').text('')
+  const allGames = data.games
+  store.user.games = allGames
+  for (let i = 0; i < allGames.length; i++) {
+      $('#p').append('<games id="games"> ' + `${allGames[i].id}` + ' </games>')
+    }
+}
+
+// const showGame = function (event) {
+//   event.preventDefault()
+//   console.log(event.target)
+// }
+
+const onGetGamesFailure = function() {
+  $('#get-games').text('Error on getting games.')
 }
 
 module.exports = {
@@ -77,5 +157,14 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   newGameSuccessfull,
-  newGameFailure
+  newGameFailure,
+  onGameUpdateSuccessfull,
+  onGameUpdateFailure,
+  statsSuccessfull,
+  statsFailure,
+  signRight,
+  signLeft,
+  changePass,
+  onGetGamesSuccess,
+  onGetGamesFailure
 }

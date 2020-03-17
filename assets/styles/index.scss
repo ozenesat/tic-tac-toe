@@ -1,10 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
-$alt-color: $cyan;
+$alt-color: #3282b8;
 $body-bg-color: $gray-200;
 $font-color: $light;
 
 body {
   background-color: $body-bg-color;
+  margin: 75px 175px;
+  border: 9px solid rgba(1,10,90,0.6);
+  border-radius: 20px;
 }
 fieldset {
   text-align: center;
@@ -13,38 +16,72 @@ fieldset {
 .box {
   align-items: center;
   background-color: $secondary;
-  border: 2px solid $white;
+  border: 2px solid $white    ;
   color: $font-color;
   display: flex;
   height: 80px;
   justify-content: center;
+  border-radius: 10px;
 }
 
-#message {
-  align-items: center;
-  background-color: $alt-color;
+#top {
+  font-family: 'Frijole', cursive;
+  font-size: 32px;
+}
+
+#gameBoard {
+    font-family: 'Monoton', cursive;
+  font-size:52px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+#again {
+  font-size: 24px;
+}
+#result {
+  font-family: 'Faster One', cursive;
+  font-size: 32px;
+}
+a {
   color:$light;
-  font-size: 18px;
 }
-#sign-out {
-  justify-content: center;
-  display: flex;
-}
-#new-game {
-  justify-content: center;
-  display: flex;
-}
-
 .alt-color {
   background-color: $alt-color;
 }
-// .failure {
-//   background-color: red;
-//   color: $gray-200;
-// }
-// .success {
-//   align-items: center;
-//   background-color: $alt-color;
-//   color:$light;
-//   font-size: 18px;
-// }
+.hide  {
+  display: none;
+}
+img  {
+  margin: 10px auto 20px;
+  display: block;
+  flex:auto;
+}
+
+.X {
+  background-color: #ffe75e;
+  color: $secondary;
+}
+.O {
+  background-color: #00bd56;
+}
+#p {
+  color:#3282b8;
+  font-size: 24px;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  #img {
+    max-width:100%;
+    height:auto;
+  }
+  body {
+    text-align: center;
+    max-width:100%;
+    height:auto;
+  }
+}

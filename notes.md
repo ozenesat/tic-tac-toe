@@ -3,6 +3,11 @@
 At the beginning of each cohort, update the versions in package.json by:
 
 ```sh
+# <!-- <fieldset>
+#   <form id="sign-out" class="border">
+#         <input type="submit" value="Sign out!">
+#     </form>
+#   </fieldset> -->
 rm -r node_modules
 cp package.json package.json.bak
 sed -E 's/"\^.+"/"*"/' package.json.bak >package.json
