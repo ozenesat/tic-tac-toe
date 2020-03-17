@@ -1,15 +1,16 @@
 'use strict'
 
 const store = require('./store')
-const events = require('./events')
 
-const signUpSuccess = function (data) {
+//Lovely and pretty clear ui codes which are has functions defined with their names.
+
+const signUpSuccess = function () {
   $('#top-left').text('Signed up successfully!')
   $('#sign-up').addClass('hide')
   $('#sign-in').removeClass('hide')
 }
 
-const signUpFailure = function (error) {
+const signUpFailure = function () {
   $('#top-left').text('Error on sign up!/Please try again.')
 }
 
@@ -27,7 +28,7 @@ const signInSuccess = function (data) {
   store.user = data.user
 }
 
-const signInFailure = function (error) {
+const signInFailure = function () {
   $('#top-right').text('Error on sign in!/Please try again.')
 }
 
@@ -35,17 +36,17 @@ const changePass = function () {
   $('#change-password').removeClass('hide')
 }
 
-const changePasswordSuccess = function (data) {
+const changePasswordSuccess = function () {
   $('#change-pass').text('Password changed successfully.')
   $('#change-password').addClass('hide')
 }
 
-const changePasswordFailure = function (error) {
+const changePasswordFailure = function () {
   $('#change-pass').text('Error on changing password/ Try again.')
 
 }
 
-const signOutSuccess = function (data) {
+const signOutSuccess = function () {
   $('#result').text('Signed out successfully!')
   $('#change-password').addClass('hide')
   $('#result').removeClass('X')
@@ -71,7 +72,7 @@ const signOutSuccess = function (data) {
 
 }
 
-const signOutFailure = function (error) {
+const signOutFailure = function () {
   $('#message').text('Error on signing out')
 }
 
@@ -86,12 +87,12 @@ const newGameSuccessfull = function (data) {
   store.validation = true
 }
 
-const newGameFailure = () => {
+const newGameFailure = function () {
   $('#message').text('Something went wrong')
 }
 
 const statsSuccessfull = function (data) {
-  $('#stats').text('Total Games Played: ' + data.games.length)
+  $('#stats').text('Total Games: ' + data.games.length)
 }
 
 const statsFailure = function () {
@@ -103,6 +104,7 @@ const onGameUpdateSuccessfull = function (data) {
 }
 
 const onGameUpdateFailure = function () {
+  $('#message').text('Error on updating the game')
 }
 
 const signLeft = function () {
@@ -120,14 +122,31 @@ const onGetGamesSuccess = function (data) {
   const allGames = data.games
   store.user.games = allGames
   for (let i = 0; i < allGames.length; i++) {
-      $('#p').append('<games id="games"> ' + `${allGames[i].id}` + ' </games>')
+      $('#p').append('<games id='+`${allGames[i].id}` + '> ' + `${allGames[i].id}` + ' </games>')
     }
 }
 
-const showGame = function (event) {
-  event.preventDefault()
-  console.log(event.target)
-  console.log('something')
+const showGameSuccesfull = function (data) {
+  $('#gameBoard').removeClass('hide')
+  $('aboard').removeClass('hide')
+  $('#img').addClass('hide')
+  $('#again').removeClass('warning')
+  $('#result').removeClass('X')
+  $('#result').removeClass('O')
+  $('#result').text('© Tic Tac Toe 2020 ®')
+  for (let i = 0; i<9; i++) {
+     $('#'+i).text(data.game.cells[i])
+     $('#'+i).removeClass('X')
+     $('#'+i).removeClass('O')
+   }
+    store.board = data.game.cells
+    store.validation = false
+    $('#again').text("Here is the game but, " +
+    "you can not play the previous games, yet. Please click here for a brand new game!")
+}
+
+const showGameFailure = function () {
+  $('#message').text('Error on showing the game')
 }
 
 const onGetGamesFailure = function() {
@@ -154,5 +173,6 @@ module.exports = {
   changePass,
   onGetGamesSuccess,
   onGetGamesFailure,
-  showGame
+  showGameSuccesfull,
+  showGameFailure
 }

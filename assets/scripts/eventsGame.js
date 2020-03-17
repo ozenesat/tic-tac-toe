@@ -1,9 +1,10 @@
 'use strict'
-
+//requirements for ajax
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../lib/get-form-fields')
 
+//creates a new game with id
 const onNewGame = function (event) {
   event.preventDefault()
   api.newGame()
@@ -11,14 +12,7 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
-// const onShowGame = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   api.showGame(data)
-//     .then(ui.showGameSuccesfull)
-//     .catch(ui.showGameFailure)
-// }
-
+//gets the played game number of user
 const onStats = function (event) {
   event.preventDefault()
   api.gameStats()
@@ -27,6 +21,7 @@ const onStats = function (event) {
 
 }
 
+//gets the previous games' ids.
 const onGetGames = function (event) {
   event.preventDefault()
   api.getGames()
@@ -34,8 +29,20 @@ const onGetGames = function (event) {
     .catch(ui.onGetGamesFailure)
 }
 
+//gets the one previous game with id.
+const onShowGame = function (event) {
+  event.preventDefault()
+  const gameId = event.target.id
+  api.showGame(gameId)
+    .then(ui.showGameSuccesfull)
+    .catch(ui.showGameFailure)
+}
+
+
+
 module.exports = {
   onNewGame,
   onStats,
-  onGetGames
+  onGetGames,
+  onShowGame
 }

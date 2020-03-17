@@ -40,6 +40,8 @@ h2 {
 
 #again {
   font-size: 24px;
+  text-align: center;
+  justify-content: center;
 }
 #result {
   font-family: 'Faster One', cursive;
@@ -84,9 +86,9 @@ img  {
     max-width:100%;
     height:auto;
   }
-  body {
-    text-align: center;
+  HTML {
     max-width:100%;
     height:auto;
+    font-size: 70%;
   }
 }

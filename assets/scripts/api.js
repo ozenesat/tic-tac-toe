@@ -3,7 +3,7 @@
 const config = require('./config')
 const store =require('./store.js')
 
-
+//Pretty clear api codes which are has functions defined with their names.
 
 const signUp = function (data) {
   return $.ajax({
@@ -91,9 +91,20 @@ const getGames = function (data) {
   })
 }
 
-const gameStats = function (data) {
+const gameStats = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const showGame = function (gameId) {
+
+  return $.ajax({
+    url: config.apiUrl + '/games/'+gameId,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -110,5 +121,6 @@ module.exports = {
   newGame,
   gameUpdate,
   getGames,
-  gameStats
+  gameStats,
+  showGame
 }
