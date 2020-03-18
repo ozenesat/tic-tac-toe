@@ -13,6 +13,7 @@ const onSignUp = function (event) {
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
+
 //sings in the user into the related id acc.
 const onSignIn = function (event) {
   event.preventDefault()
@@ -21,6 +22,7 @@ const onSignIn = function (event) {
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
+
 //changes the password of the user
 const onChangePassword = function (event) {
   event.preventDefault()
@@ -29,6 +31,7 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+
 //signs out the user.
 const onSignOut = function (event) {
   event.preventDefault()

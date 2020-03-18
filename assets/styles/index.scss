@@ -9,6 +9,7 @@ body {
   border: 9px solid rgba(1,10,90,0.6);
   border-radius: 20px;
 }
+
 fieldset {
   text-align: center;
 }
@@ -43,19 +44,24 @@ h2 {
   text-align: center;
   justify-content: center;
 }
+
 #result {
   font-family: 'Faster One', cursive;
   font-size: 32px;
 }
+
 a {
   color:$light;
 }
+
 .alt-color {
   background-color: $alt-color;
 }
+
 .hide  {
   display: none;
 }
+
 img  {
   margin: 10px auto 20px;
   display: block;
@@ -66,9 +72,11 @@ img  {
   background-color: #ffe75e;
   color: $secondary;
 }
+
 .O {
   background-color: #00bd56;
 }
+
 #p {
   color:#3282b8;
   font-size: 24px;
@@ -85,6 +93,7 @@ img  {
   body {
     margin: 25px 45px;
   }
+
   #img {
     max-width:100%;
     height:auto;
@@ -95,25 +104,32 @@ img  {
   body {
     margin: 15px 25px;
   }
+
   #img {
     max-width:100%;
     height:auto;
   }
+
   #top {
     font-size: 19px;
   }
+
   #gameBoard {
     font-size: 19px;
   }
+
   #result {
     font-size: 19px;
-}
-.warning {
+  }
+
+  .warning {
   font-size: 19px;
   }
+
   #again {
     font-size: 19px;
   }
+
   .box{
     font-size: 19px;
   }

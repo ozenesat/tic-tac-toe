@@ -2,6 +2,7 @@
 
 const store = require('./store')
 
+
 //Lovely and pretty clear ui codes which are has functions defined with their names.
 
 const signUpSuccess = function () {
@@ -65,6 +66,7 @@ const signOutSuccess = function () {
   $('#stats').text('Get Stats!')
   $('#get-games').addClass('hide')
   $('#p').text('')
+  key = false
   store.validation = false
   for(let i = 0; i < 9; i++) {
     $('#'+i).text('')

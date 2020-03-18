@@ -8,10 +8,13 @@ const getFormFields = require('../../lib/get-form-fields')
 //control variables
 // check variable which shows if the game is over or not, used all functions of the game logic
 let gameCheck = true
+
 // counter for the decide if it X or O with % 2
 let counter = 1
+
 // user's sign for the game
 let letter = 'x'
+
 // extra variable for the even-steven bug of the check funtion
 let es = 0
 
@@ -98,7 +101,7 @@ const restart = function (){
   es = 0
   counter = 1
   gameCheck = true
-  store.validation = true
+  //store.validation = true
   store.board = [
     '', '', '',
     '', '', '',
