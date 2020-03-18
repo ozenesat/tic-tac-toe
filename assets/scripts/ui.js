@@ -88,7 +88,7 @@ const newGameSuccessfull = function (data) {
 }
 
 const newGameFailure = function () {
-  $('#message').text('Something went wrong')
+  $('#message').text('Error on creating new game')
 }
 
 const statsSuccessfull = function (data) {

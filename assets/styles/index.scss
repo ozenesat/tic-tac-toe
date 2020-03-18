@@ -86,9 +86,36 @@ img  {
     max-width:100%;
     height:auto;
   }
-  HTML {
+  .box {
     max-width:100%;
     height:auto;
     font-size: 70%;
+  }
+}
+
+@media (max-width: 640px) {
+  #img {
+    max-width:100%;
+    height:auto;
+  }
+  .box {
+    max-width:100%;
+    height:auto;
+    font-size: 50%;
+  }
+  #top {
+    font-size: 11px;
+  }
+  #gameBoard {
+    font-size:11px;
+  }
+  #result {
+    font-size: 11px;
+}
+.warning {
+  font-size: 11px;
+  }
+  #again {
+    font-size: 11px;
   }
 }
