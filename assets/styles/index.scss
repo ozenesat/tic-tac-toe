@@ -82,40 +82,39 @@ img  {
 }
 
 @media (max-width: 980px) {
+  body {
+    margin: 25px 45px;
+  }
   #img {
     max-width:100%;
     height:auto;
-  }
-  .box {
-    max-width:100%;
-    height:auto;
-    font-size: 70%;
   }
 }
 
 @media (max-width: 640px) {
+  body {
+    margin: 15px 25px;
+  }
   #img {
     max-width:100%;
     height:auto;
   }
-  .box {
-    max-width:100%;
-    height:auto;
-    font-size: 50%;
-  }
   #top {
-    font-size: 11px;
+    font-size: 19px;
   }
   #gameBoard {
-    font-size:11px;
+    font-size: 19px;
   }
   #result {
-    font-size: 11px;
+    font-size: 19px;
 }
 .warning {
-  font-size: 11px;
+  font-size: 19px;
   }
   #again {
-    font-size: 11px;
+    font-size: 19px;
+  }
+  .box{
+    font-size: 19px;
   }
 }
