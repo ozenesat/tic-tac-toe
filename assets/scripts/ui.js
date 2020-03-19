@@ -74,6 +74,7 @@ const signOutSuccess = function () {
   $('#img').removeClass('hide')
   $('#stats').addClass('hide')
   $('#get-games').addClass('hide')
+  $('#again').removeClass('warning')
   $('#p').text('')
   store.validation = false
   for(let i = 0; i < 9; i++) {
