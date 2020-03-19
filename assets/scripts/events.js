@@ -23,9 +23,8 @@ const onPlay = function (event) {
   let box = $(event.target)
   //checks if the space is empty when new game already created and game is not over yet.
   if (box.text() !== ''  && gameCheck === true && store.validation === true) {
-    $('#feedback').removeClass('hide')
-    $('#feedback').addClass('failure')
-    $('#feedback').text('Please click an empty space on the game board!')
+    $('#again').addClass('warning')
+    $('#again').text('Please click an empty space on the game board! or Restart the game!')
   }
   //checks if the user can add X or O to the clicked space.
   if (box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === true && store.validation === true) {
@@ -49,10 +48,10 @@ const onPlay = function (event) {
       //store.player_o[box.attr("id")] = 'O'
       check('O')
     }
-    //checks if the new game created with id on the server
+    //while previous games on the screen this statement frooze the board.
+    // so user can not add any X/O's to the screen, since updating previous games is not functional yet.
     if (store.validation !== true) {
-      $("#again").text('Please sign-in to play the game!')
-      $('#again').removeClass('warning')
+      $("#again").text('Please click here for a brand new game!')
     }
     //checks if the game is over or not
       else if (gameCheck === false){
