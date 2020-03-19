@@ -48,4 +48,6 @@ $(() => {
 
   //list of previous games' ids for signed in user.
   $('#p').on('click', eventsGame.onShowGame)
+
+  $('body').on('click', events.clear)
 })

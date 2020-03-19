@@ -22,9 +22,11 @@ fieldset {
   display: flex;
   height: 80px;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 5px 7px 7px #0f4c75 inset;
+  // 192965
 }
-
 #top {
   font-family: 'Frijole', cursive;
   font-size: 32px;
@@ -37,7 +39,9 @@ fieldset {
 
 h2 {
   font-size: 24px;
+  text-align: center;
 }
+
 
 #again {
   font-size: 24px;
@@ -56,6 +60,16 @@ a {
 
 .alt-color {
   background-color: $alt-color;
+}
+
+.success {
+  color:white;
+  background-color: green;
+}
+
+.failure {
+  color:white;
+  background-color: red;
 }
 
 .hide  {

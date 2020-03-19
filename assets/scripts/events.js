@@ -23,18 +23,19 @@ const onPlay = function (event) {
   let box = $(event.target)
   //checks if the space is empty when new game already created and game is not over yet.
   if (box.text() !== ''  && gameCheck === true && store.validation === true) {
-    $('#again').addClass('warning')
-    $('#again').text('Please click an empty space on the game board! / Restart The Game')
+    $('#feedback').removeClass('hide')
+    $('#feedback').addClass('failure')
+    $('#feedback').text('Please click an empty space on the game board!')
   }
   //checks if the user can add X or O to the clicked space.
   if (box.text() === '' && box.text() !=='O' && (counter % 2 === 1) && gameCheck === true && store.validation === true) {
     letter = 'X'
     box.text(letter)
     $(box).addClass('X')
-    $('#again').removeClass('warning')
     counter += 1
     store.board[box.attr("id")] = letter
     $('#again').text("O's Turn / Restart The Game")
+    $('#again').removeClass('warning')
     // store.player_x[box.attr("id")] = 'X'
     check('X')
     } else if (box.text() === '' && box.text() !=='X' && (counter % 2 === 0) && gameCheck === true && store.validation === true) {
@@ -43,8 +44,8 @@ const onPlay = function (event) {
       $(box).addClass('O')
       counter += 1
       store.board[box.attr("id")] = letter
-      $('#again').removeClass('warning')
       $('#again').text("X's Turn / Restart The Game")
+      $('#again').removeClass('warning')
       //store.player_o[box.attr("id")] = 'O'
       check('O')
     }
@@ -86,6 +87,9 @@ const check = function (user) {
   }
   if (counter === 10 && es === 0) {
     $("#result").text('Even-Steven!')
+    $('#feedback').removeClass('hide')
+    $('#feedback').addClass('success')
+    $('#feedback').text('Friendship is the winner here!')
     gameCheck= false
   }
 }
@@ -112,18 +116,22 @@ const restart = function (){
   if (store.validation === true) {
     $('#again').text('Restart The Game')
     $('#again').removeClass('warning')
-    $('#stats').text('Get Stats')
-    $('#change-password').addClass('hide')
     $('#p').text('')
-    $('#change-pass').text('Change Password!')
     $('#result').text('© Tic Tac Toe 2020 ®')
-    $('#change-pass').text('Change Password!')
   }
 }
 
+//clears the feedback bar.
+const clear = function () {
+  $('#feedback').addClass('hide')
+  $('#feedback').removeClass('success')
+  $('#feedback').removeClass('failure')
+  $('#feedback').text('')
+}
 
 module.exports = {
 onPlay,
 restart,
-counter
+counter,
+clear
 }
