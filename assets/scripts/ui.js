@@ -63,6 +63,7 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function () {
+  $("#change-password").addClass('hide')
   $('#feedback').removeClass('hide')
   $('#feedback').addClass('success')
   $('#feedback').text('Signed out successfully!')
@@ -123,6 +124,7 @@ const statsFailure = function () {
 }
 
 const onGameUpdateSuccessfull = function (data) {
+  $("#change-password").addClass('hide')
   store.game = data.game
 }
 
