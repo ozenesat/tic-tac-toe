@@ -31,6 +31,7 @@ const signInSuccess = function (data) {
   $('#top-left').addClass('hide')
   $('#stats').removeClass('hide')
   $('#get-games').removeClass('hide')
+  document.getElementById("sign-in").reset()
   store.user = data.user
 
 }
@@ -50,6 +51,7 @@ const changePasswordSuccess = function () {
   $('#feedback').addClass('success')
   $('#feedback').text('Password changed successfully!')
   $('#change-password').addClass('hide')
+  document.getElementById("change-password").reset()
 }
 
 const changePasswordFailure = function () {
@@ -57,6 +59,7 @@ const changePasswordFailure = function () {
   $('#feedback').addClass('failure')
   $('#feedback').text('Error on changing password! Please try again.')
   $('#change-password').addClass('hide')
+  document.getElementById("change-password").reset()
 }
 
 const signOutSuccess = function () {
@@ -96,6 +99,7 @@ const newGameSuccessfull = function (data) {
   $('#gameBoard').removeClass('hide')
   $('aboard').removeClass('hide')
   $('#img').addClass('hide')
+  $("#change-password").addClass('hide')
   store.game = data.game
   store.validation = true
 }
@@ -142,6 +146,7 @@ const onGetGamesSuccess = function (data) {
   $('#feedback').removeClass('hide')
   $('#feedback').addClass('success')
   $('#feedback').text('Games were retrived successfully!')
+  $("#change-password").addClass('hide')
   $('#p').text('')
   const allGames = data.games
   store.user.games = allGames
@@ -151,6 +156,7 @@ const onGetGamesSuccess = function (data) {
 }
 
 const showGameSuccesfull = function (data) {
+  $("#change-password").addClass('hide')
   $('#gameBoard').removeClass('hide')
   $('aboard').removeClass('hide')
   $('#img').addClass('hide')

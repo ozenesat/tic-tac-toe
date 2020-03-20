@@ -120,7 +120,7 @@ const restart = function (){
   }
 }
 
-//clears the feedback bar.
+//clears the feedback bar.(and removes change pass form if it's on the screen)
 const clear = function () {
   $('#feedback').addClass('hide')
   $('#feedback').removeClass('success')
