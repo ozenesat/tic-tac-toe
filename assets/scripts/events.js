@@ -93,7 +93,7 @@ const check = function (user) {
   }
 }
 
-//restarts the game
+//restarts(-create new) the game
 const restart = function (){
   event.preventDefault()
   for(let i = 0; i < 9; i++) {

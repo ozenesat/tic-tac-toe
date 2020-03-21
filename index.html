@@ -17,16 +17,16 @@
 
     <body>
       <br>
-      <!-- top rows for title/sign-up/-in/change password/sign-out. -->
+      <!-- top row buttons for title/sign-up/-in/change password/sign-out. -->
       <div class="container">
       <div class="row">
           <div id='top' class="col-12 box alt-color">Tic Tac Toe</div>
-          <h2 id='top-left' type="submit" class="col-6 box alt-color"> Sign-up!</h2>
-          <h2 id='top-right' type="submit" class="col-6 box alt-color"> Sign-in!</h2>
-        <!-- second top rows for change-pass/stats/sign out. -->
-          <h2 id='change-pass' type="submit" class="col-4 box alt-color hide"> Change Password!</h2>
-          <h2 id='stats' type="submit" class="col-4 box alt-color hide"> Get Stats!</h2>
-          <h2 id='sign-out' type="submit" class="col-4 box alt-color hide"> Sign-out!</h2>
+          <h2 id='top-left' type="button" class="col-6 box alt-color"> Sign-up!</h2>
+          <h2 id='top-right' type="button" class="col-6 box alt-color"> Sign-in!</h2>
+        <!-- second top row buttons for change-pass/stats/sign out. -->
+          <h2 id='change-pass' type="button" class="col-4 box alt-color hide"> Change Password!</h2>
+          <h2 id='stats' type="button" class="col-4 box alt-color hide"> Get Stats!</h2>
+          <h2 id='sign-out' type="button" class="col-4 box alt-color hide"> Sign-out!</h2>
             <!-- change password form -->
           <cp>
           <form id="change-password" class="border hide">
@@ -56,32 +56,32 @@
         </fieldset>
       </form>
       <!-- gif for opening page -->
-        <img id='img' src="https://sashabausheva.github.io/tictactoe-client/public/images/welcome-img.gif" alt="tic-tac-gif"width="600" height="328">
+        <img id='img' src="https://sashabausheva.github.io/tictactoe-client/public/images/welcome-img.gif" alt="tic-tac-gif" width="600" height="328">
   <br>
       <!-- gameboard  -->
     <aboard>
       <div class="container">
             <div id=gameBoard  type="submit" class="row hide">
-            <div id=0 class="col-4 box alt-color"></div>
-            <div id=1 class="col-4 box alt-color"></div>
-            <div id=2 class="col-4 box alt-color"></div>
-            <div id=3 class="col-4 box alt-color"></div>
-            <div id=4 class="col-4 box alt-color"></div>
-            <div id=5 class="col-4 box alt-color"></div>
-            <div id=6 class="col-4 box alt-color"></div>
-            <div id=7 class="col-4 box alt-color"></div>
-            <div id=8 class="col-4 box alt-color"></div>
+            <button id=0 class="col-4 box alt-color"></button>
+            <button id=1 class="col-4 box alt-color"></button>
+            <button id=2 class="col-4 box alt-color"></button>
+            <button id=3 class="col-4 box alt-color"></button>
+            <button id=4 class="col-4 box alt-color"></button>
+            <button id=5 class="col-4 box alt-color"></button>
+            <button id=6 class="col-4 box alt-color"></button>
+            <button id=7 class="col-4 box alt-color"></button>
+            <button id=8 class="col-4 box alt-color"></button>
           </div>
         </div>
     </aboard>
         <br>
         <br>
       <!-- bottom rows for results and restart etc. -->
-      <h2 id="feedback" class="hide"> some text </h2>
+      <h2 id="feedback" class="hide alert alert-success" role="alert">  </h2>
         <div class="container">
             <div class="row">
-              <div id="again" type="submit" class="col-12 box alt-color">Please sign-in to play the game!</div>
-              <div id="result" type="submit" class="col-12 box alt-color">
+              <button id="again" type="submit" class="col-12 box alt-color hide">Please sign-in to play the game!</button>
+              <div id="result" class="col-12 box alt-color">
                 <a href="https://www.linkedin.com/in/esatozen/"> © Tic Tac Toe 2020 ® </a>
               </div>
               <h2 id='get-games' type="submit" class="col-12 box alt-color hide"> Get Games!</h2>

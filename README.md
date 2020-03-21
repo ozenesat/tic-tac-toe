@@ -12,7 +12,7 @@ I started my project with my basic HTML page with bootStrap. Firstly I created a
 Even if I updated my wireframe progressively with the new functions of the page, here is my very first (on this project and my life) wireframe is here:
 ![alt text](https://i.imgur.com/MBN0fnd.jpg "Very First Wireframe")
 
-And my game stories are here:
+And my user stories are here:
 - As a new user, I should sign up so that I can sign-in and play the game.
 - As a returning user, I should sign in so that I can start a new game.
 - As a apprehensive user, I should sign in so that I can change my password.

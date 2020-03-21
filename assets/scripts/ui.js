@@ -20,6 +20,7 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
+  $('#again').removeClass('hide')
   $('#sign-in').addClass('hide')
   $('#change-pass').removeClass('hide')
   $('#sign-out').removeClass('hide')
@@ -63,6 +64,7 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function () {
+  $('#again').addClass('hide')
   $("#change-password").addClass('hide')
   $('#feedback').removeClass('hide')
   $('#feedback').addClass('success')
@@ -175,8 +177,9 @@ const showGameSuccesfull = function (data) {
     store.board = data.game.cells
     $('#feedback').removeClass('hide')
     $('#feedback').addClass('success')
-    $('#again').text("Here is the game but, " +
-    "you can not play the previous games, yet. Please click here to start a brand new game!")
+    $('#feedback').text('Here is the game ' + `${data.game.id}`)
+    $('#again').text(
+    "You can not play the previous games, yet. Please click here to start a brand new game!")
 }
 
 const showGameFailure = function () {
