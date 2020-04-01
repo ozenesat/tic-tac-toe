@@ -2,8 +2,7 @@
 
 const store = require('./store')
 
-
-//Lovely and pretty clear ui codes which are has functions defined with their names.
+// Lovely and pretty clear ui codes which are has functions defined with their names.
 
 const signUpSuccess = function () {
   $('#feedback').removeClass('hide')
@@ -11,12 +10,14 @@ const signUpSuccess = function () {
   $('#feedback').text('Signed up successfully!')
   $('#sign-up').addClass('hide')
   $('#sign-in').removeClass('hide')
+  document.getElementById('sign-up').reset()
 }
 
 const signUpFailure = function () {
   $('#feedback').removeClass('hide')
   $('#feedback').addClass('failure')
   $('#feedback').text('Error on sign up! Please try again.')
+  document.getElementById('sign-up').reset()
 }
 
 const signInSuccess = function (data) {
@@ -32,15 +33,15 @@ const signInSuccess = function (data) {
   $('#top-left').addClass('hide')
   $('#stats').removeClass('hide')
   $('#get-games').removeClass('hide')
-  document.getElementById("sign-in").reset()
+  document.getElementById('sign-in').reset()
   store.user = data.user
-
 }
 
 const signInFailure = function () {
   $('#feedback').removeClass('hide')
   $('#feedback').addClass('failure')
   $('#feedback').text('Error on sign in! Please try again.')
+  document.getElementById('sign-in').reset()
 }
 
 const changePass = function () {
@@ -52,7 +53,7 @@ const changePasswordSuccess = function () {
   $('#feedback').addClass('success')
   $('#feedback').text('Password changed successfully!')
   $('#change-password').addClass('hide')
-  document.getElementById("change-password").reset()
+  document.getElementById('change-password').reset()
 }
 
 const changePasswordFailure = function () {
@@ -60,12 +61,12 @@ const changePasswordFailure = function () {
   $('#feedback').addClass('failure')
   $('#feedback').text('Error on changing password! Please try again.')
   $('#change-password').addClass('hide')
-  document.getElementById("change-password").reset()
+  document.getElementById('change-password').reset()
 }
 
 const signOutSuccess = function () {
   $('#again').addClass('hide')
-  $("#change-password").addClass('hide')
+  $('#change-password').addClass('hide')
   $('#feedback').removeClass('hide')
   $('#feedback').addClass('success')
   $('#feedback').text('Signed out successfully!')
@@ -83,8 +84,8 @@ const signOutSuccess = function () {
   $('#again').removeClass('warning')
   $('#p').text('')
   store.validation = false
-  for(let i = 0; i < 9; i++) {
-    $('#'+i).text('')
+  for (let i = 0; i < 9; i++) {
+    $('#' + i).text('')
   }
 }
 
@@ -102,7 +103,7 @@ const newGameSuccessfull = function (data) {
   $('#gameBoard').removeClass('hide')
   $('aboard').removeClass('hide')
   $('#img').addClass('hide')
-  $("#change-password").addClass('hide')
+  $('#change-password').addClass('hide')
   store.game = data.game
   store.validation = true
 }
@@ -126,7 +127,7 @@ const statsFailure = function () {
 }
 
 const onGameUpdateSuccessfull = function (data) {
-  $("#change-password").addClass('hide')
+  $('#change-password').addClass('hide')
   store.game = data.game
 }
 
@@ -150,17 +151,17 @@ const onGetGamesSuccess = function (data) {
   $('#feedback').removeClass('hide')
   $('#feedback').addClass('success')
   $('#feedback').text('Games were retrived successfully!')
-  $("#change-password").addClass('hide')
+  $('#change-password').addClass('hide')
   $('#p').text('')
   const allGames = data.games
   store.user.games = allGames
   for (let i = 0; i < allGames.length; i++) {
-      $('#p').append('<games id='+`${allGames[i].id}` + '> ' + `${allGames[i].id}` + ' </games>')
-    }
+    $('#p').append('<games id=' + `${allGames[i].id}` + '> ' + `${allGames[i].id}` + ' </games>')
+  }
 }
 
 const showGameSuccesfull = function (data) {
-  $("#change-password").addClass('hide')
+  $('#change-password').addClass('hide')
   $('#gameBoard').removeClass('hide')
   $('aboard').removeClass('hide')
   $('#img').addClass('hide')
@@ -168,18 +169,17 @@ const showGameSuccesfull = function (data) {
   $('#result').removeClass('X')
   $('#result').removeClass('O')
   $('#result').text('© Tic Tac Toe 2020 ®')
-  for (let i = 0; i<9; i++) {
-     $('#'+i).text(data.game.cells[i])
-     $('#'+i).removeClass('X')
-     $('#'+i).removeClass('O')
-   }
-    store.validation = false
-    store.board = data.game.cells
-    $('#feedback').removeClass('hide')
-    $('#feedback').addClass('success')
-    $('#feedback').text('Here is the game ' + `${data.game.id}`)
-    $('#again').text(
-    "You can not play the previous games, yet. Please click here to start a brand new game!")
+  for (let i = 0; i < 9; i++) {
+    $('#' + i).text(data.game.cells[i])
+    $('#' + i).removeClass('X')
+    $('#' + i).removeClass('O')
+  }
+  store.validation = false
+  store.board = data.game.cells
+  $('#feedback').removeClass('hide')
+  $('#feedback').addClass('success')
+  $('#feedback').text('Here is the game ' + `${data.game.id}`)
+  $('#again').text('You can not play the previous games, yet. Please click here to start a brand new game!')
 }
 
 const showGameFailure = function () {
@@ -188,7 +188,7 @@ const showGameFailure = function () {
   $('#feedback').text('Error on showing the game! Please try again.')
 }
 
-const onGetGamesFailure = function() {
+const onGetGamesFailure = function () {
   $('#feedback').removeClass('hide')
   $('#feedback').addClass('failure')
   $('#feedback').text('Error on getting the games! Please try again.')

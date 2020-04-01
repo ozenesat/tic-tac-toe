@@ -5,7 +5,7 @@ const api = require('./api')
 const ui = require('./ui')
 
 
-//creates a new user on server
+// creates a new user on server
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -14,7 +14,7 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
-//sings in the user into the related id acc.
+// sings in the user into the related id acc.
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -23,7 +23,7 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
-//changes the password of the user
+// changes the password of the user
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -32,7 +32,7 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
-//signs out the user.
+// signs out the user.
 const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)

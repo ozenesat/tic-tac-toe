@@ -1,19 +1,19 @@
 'use strict'
-//requirements for ajax
+// requirements for ajax
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../lib/get-form-fields')
 
-//creates a new game with id
-const onNewGame = function (event) {
+// creates a new game with id
+const onNewGame = function(event) {
   event.preventDefault()
   api.newGame()
     .then(ui.newGameSuccessfull)
     .catch(ui.newGameFailure)
 }
 
-//gets the played game number of user
-const onStats = function (event) {
+// gets the played game number of user
+const onStats = function(event) {
   event.preventDefault()
   api.gameStats()
     .then(ui.statsSuccessfull)
@@ -21,16 +21,16 @@ const onStats = function (event) {
 
 }
 
-//gets the previous games' ids.
-const onGetGames = function (event) {
+// gets the previous games' ids.
+const onGetGames = function(event) {
   event.preventDefault()
   api.getGames()
     .then(ui.onGetGamesSuccess)
     .catch(ui.onGetGamesFailure)
 }
 
-//gets the one previous game with id.
-const onShowGame = function (event) {
+// gets the one previous game with id.
+const onShowGame = function(event) {
   event.preventDefault()
   const gameId = event.target.id
   api.showGame(gameId)
