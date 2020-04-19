@@ -3,7 +3,7 @@
 const ui = require('./ui')
 const api = require('./api')
 const store = require('./store.js')
-const getFormFields = require('../../lib/get-form-fields')
+// const getFormFields = require('../../lib/get-form-fields')
 
 // control variables
 // check variable which shows if the game is over or not, used all functions of the game logic
@@ -19,8 +19,8 @@ let letter = 'x'
 let es = 0
 
 // game logic. while user play, control the board and actions.
-const onPlay = function( event ) {
-  let box = $(event.target)
+const onPlay = function (event) {
+  const box = $(event.target)
   // checks if the space is empty when new game already created and game is not over yet.
   if (box.text() !== '' && gameCheck === true && store.validation === true) {
     $('#again').addClass('warning')
@@ -52,13 +52,12 @@ const onPlay = function( event ) {
   // so user can not add any X/O's to the screen, since updating previous games is not functional yet.
   if (store.validation !== true) {
     $('#again').text('Please click here for a brand new game!')
-  }
-  // checks if the game is over or not
-  else if (gameCheck === false) {
+    // checks if the game is over or not
+  } else if (gameCheck === false) {
     $('#again').text('Game is Over / Play Again?')
     $('#again').addClass('warning')
   }
-  //saves the actions of the user on the server like added X at 1st spot.
+  // saves the actions of the user on the server like added X at 1st spot.
   api.gameUpdate(event.target, letter, gameCheck)
     .then(ui.onGameUpdateSuccessfull)
     .catch(ui.onGameUpdatefailure)
@@ -67,10 +66,10 @@ const onPlay = function( event ) {
 // checks the board for the winner
 const check = function (user) {
   for (let i = 0; i < 8; i++) {
-    let winnerCheck = store.winner[i]
-    let p1 = store.board[winnerCheck[0]]
-    let p2 = store.board[winnerCheck[1]]
-    let p3 = store.board[winnerCheck[2]]
+    const winnerCheck = store.winner[i]
+    const p1 = store.board[winnerCheck[0]]
+    const p2 = store.board[winnerCheck[1]]
+    const p3 = store.board[winnerCheck[2]]
     if ((p1 + p2 + p3) === 'XXX') {
       $('#result').text('X Wins!')
       $('#result').addClass('X')
@@ -94,7 +93,7 @@ const check = function (user) {
 }
 
 // restarts(-create new) the game
-const restart = function() {
+const restart = function () {
   event.preventDefault()
   for (let i = 0; i < 9; i++) {
     $('#' + i).text('')
@@ -104,7 +103,7 @@ const restart = function() {
   es = 0
   counter = 1
   gameCheck = true
-  //store.validation = true
+  // store.validation = true
   store.board = [
     '', '', '',
     '', '', '',
@@ -120,8 +119,8 @@ const restart = function() {
   }
 }
 
-//clears the feedback bar.(and removes change pass form if it's on the screen)
-const clear = function() {
+// clears the feedback bar.(and removes change pass form if it's on the screen)
+const clear = function () {
   $('#feedback').addClass('hide')
   $('#feedback').removeClass('success')
   $('#feedback').removeClass('failure')

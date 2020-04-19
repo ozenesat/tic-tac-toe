@@ -4,7 +4,6 @@ const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
-
 // creates a new user on server
 const onSignUp = function (event) {
   event.preventDefault()
@@ -35,12 +34,11 @@ const onChangePassword = function (event) {
 // signs out the user.
 const onSignOut = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  // const data = getFormFields(event.target)
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
-
 
 module.exports = {
   onSignUp,

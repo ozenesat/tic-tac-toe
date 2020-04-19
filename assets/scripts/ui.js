@@ -73,7 +73,7 @@ const signOutSuccess = function () {
   $('#result').removeClass('X')
   $('#result').removeClass('O')
   $('#again').text('Please sign-in to play the game!')
-  $('aboard').addClass('hide')
+  $('#gameBoard').addClass('hide')
   $('#change-pass').addClass('hide')
   $('#sign-out').addClass('hide')
   $('#top-left').removeClass('hide')
@@ -101,7 +101,7 @@ const newGameSuccessfull = function (data) {
   $('#feedback').text('New Game Started!')
   $('#again').text('Restart The Game')
   $('#gameBoard').removeClass('hide')
-  $('aboard').removeClass('hide')
+  // $('aboard').removeClass('hide')
   $('#img').addClass('hide')
   $('#change-password').addClass('hide')
   store.game = data.game
@@ -163,7 +163,7 @@ const onGetGamesSuccess = function (data) {
 const showGameSuccesfull = function (data) {
   $('#change-password').addClass('hide')
   $('#gameBoard').removeClass('hide')
-  $('aboard').removeClass('hide')
+  // $('aboard').removeClass('hide')
   $('#img').addClass('hide')
   $('#again').removeClass('warning')
   $('#result').removeClass('X')

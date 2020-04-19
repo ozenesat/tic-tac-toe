@@ -1,9 +1,9 @@
 'use strict'
 
 const config = require('./config')
-const store =require('./store.js')
+const store = require('./store.js')
 
-//Pretty clear api codes which are has functions defined with their names.
+// Pretty clear api codes which are has functions defined with their names.
 
 const signUp = function (data) {
   return $.ajax({
@@ -15,7 +15,7 @@ const signUp = function (data) {
 
 const signIn = function (data) {
   return $.ajax({
-    url:config.apiUrl + '/sign-in',
+    url: config.apiUrl + '/sign-in',
     method: 'POST',
     data
   })
@@ -23,7 +23,7 @@ const signIn = function (data) {
 
 const changePassword = function (data) {
   return $.ajax({
-    url:config.apiUrl + '/change-password',
+    url: config.apiUrl + '/change-password',
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -34,7 +34,7 @@ const changePassword = function (data) {
 
 const signOut = function (data) {
   return $.ajax({
-    url:config.apiUrl + '/sign-out',
+    url: config.apiUrl + '/sign-out',
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -59,15 +59,15 @@ const gameUpdate = function (div, letter, gameCheck) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data : {
-      "game": {
-        "cell": {
-          "index": div.id,
-          "value": letter
-    },
-    "over": !gameCheck
-  }
-}
+    data: {
+      'game': {
+        'cell': {
+          'index': div.id,
+          'value': letter
+        },
+        'over': !gameCheck
+      }
+    }
   })
 }
 
@@ -102,16 +102,14 @@ const gameStats = function () {
 }
 
 const showGame = function (gameId) {
-
   return $.ajax({
-    url: config.apiUrl + '/games/'+gameId,
+    url: config.apiUrl + '/games/' + gameId,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
-
 
 module.exports = {
   signUp,
