@@ -8,6 +8,12 @@ body {
   margin: 75px 175px;
   border: 9px solid rgba(1,10,90,0.6);
   border-radius: 20px;
+  align-items: center;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 fieldset {
@@ -24,9 +30,10 @@ fieldset {
   justify-content: center;
   border-radius: 15px;
   padding: 10px;
-  box-shadow: 5px 5px 5px #e5dfdf inset;
+  // box-shadow: 5px 5px 5px #e5dfdf inset;
   // 192965
 }
+
 #top {
   font-family: 'Frijole', cursive;
   font-size: 32px;
