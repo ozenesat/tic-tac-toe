@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic Tac Toe Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Frijole&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Faster+One&display=swap" rel="stylesheet">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <br>
+  <!-- top row buttons for title/sign-up/-in/change password/sign-out. -->
+  <div class="container">
+    <div class="row">
+      <div id='top' class="col-12 box alt-color">Tic Tac Toe</div>
+      <h2 id='top-left' type="button" class="col-6 box alt-color"> Sign-up!</h2>
+      <h2 id='top-right' type="button" class="col-6 box alt-color"> Sign-in!</h2>
+      <!-- second top row buttons for change-pass/stats/sign out. -->
+      <h2 id='change-pass' type="button" class="col-4 box alt-color hide"> Change Password!</h2>
+      <h2 id='stats' type="button" class="col-4 box alt-color hide"> Get Stats!</h2>
+      <h2 id='sign-out' type="button" class="col-4 box alt-color hide"> Sign-out!</h2>
+      <!-- change password form -->
+      <cp>
+        <form id="change-password" class="border hide">
+          <fieldset>
+            <input type="password" name="passwords[old]" placeholder="Old Password">
+            <input type="password" name="passwords[new]" placeholder="New Password">
+            <input type="submit" value="Change password!">
+          </fieldset>
+        </form>
+      </cp>
+    </div>
+  </div>
+  <!-- sign-up and sign-in forms -->
+  <form id="sign-up" class="border hide">
+    <fieldset>
+      <input type="email" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+      <input type="submit" value="Sign up!">
+    </fieldset>
+  </form>
+  <form id="sign-in" class="border hide">
+    <fieldset>
+      <input type="email" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="submit" value="Sign in!">
+    </fieldset>
+  </form>
+  <!-- gif for opening page -->
+  <img id='img' src="https://sashabausheva.github.io/tictactoe-client/public/images/welcome-img.gif" alt="tic-tac-gif" width="600" height="328">
+  <br>
+  <!-- gameboard  -->
+  <div id="gameBoard" class="row hide container">
+    <button id=0 class="col-4 box alt-color"></button>
+    <button id=1 class="col-4 box alt-color"></button>
+    <button id=2 class="col-4 box alt-color"></button>
+    <button id=3 class="col-4 box alt-color"></button>
+    <button id=4 class="col-4 box alt-color"></button>
+    <button id=5 class="col-4 box alt-color"></button>
+    <button id=6 class="col-4 box alt-color"></button>
+    <button id=7 class="col-4 box alt-color"></button>
+    <button id=8 class="col-4 box alt-color"></button>
+  </div>
+  <br>
+  <br>
+  <!-- bottom rows for results and restart etc. -->
+  <h2 id="feedback" class="hide alert alert-success" role="alert"> </h2>
+  <div class="container">
+    <div class="row">
+      <button id="again" type="submit" class="col-12 box alt-color hide">Please sign-in to play the game!</button>
+      <div id="result" class="col-12 box alt-color">
+        <a href="https://www.linkedin.com/in/esatozen/"> © Tic Tac Toe 2020 ® </a>
+      </div>
+      <h2 id='get-games' type="submit" class="col-12 box alt-color hide"> Get Games!</h2>
+    </div>
+  </div>
+  <!-- previous games -->
+  <p id='p' type="submit">
+    <games id='games'> </games>
+  </p>
+</body>
+
+</html>
