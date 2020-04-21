@@ -5,20 +5,10 @@ $font-color: $light;
 
 body {
   background-color: $body-bg-color;
-  margin: 75px 175px;
+  // margin: 75px 175px;
   border: 9px solid rgba(1,10,90,0.6);
   border-radius: 20px;
   align-items: center;
-}
-
-.row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.container {
-  margin-left: 0;
-  margin-right: 0;
 }
 
 fieldset {
@@ -47,13 +37,13 @@ fieldset {
 #gameBoard {
   font-family: 'Monoton', cursive;
   font-size:52px;
+  margin: auto;
 }
 
 h2 {
   font-size: 24px;
   text-align: center;
 }
-
 
 #again {
   font-size: 24px;
